@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "MbvsDFhDMsV7Ce0ZwJ9+ISHKoilYic48d9hD3MWwgwlIoNThJYO7iNOh3Oc3Z5V9xLEeVRDDrIrzbzovsneLiQ==",
+  "dgSpecHash": "sV+d9eFpghAI/c0gQS4sDnUx8QTEjPBROB72LULxZGwAxW4Fmu+EADArrcyhOHmRTghyuJzYv34m8XK6Lw9b5A==",
   "success": true,
-  "projectFilePath": "E:\\DotNet\\Rest API with DotNet Core\\CinemaAPI\\CinemaAPI.csproj",
+  "projectFilePath": "E:\\DotNet\\Rest API with DotNet Core\\APICinema\\CinemaAPI\\CinemaAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Prabhat chand\\.nuget\\packages\\aspnetcore.authentication.plugin\\1.0.1\\aspnetcore.authentication.plugin.1.0.1.nupkg.sha512",
     "C:\\Users\\Prabhat chand\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",

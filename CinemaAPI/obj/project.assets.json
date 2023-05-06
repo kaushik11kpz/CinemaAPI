@@ -5551,11 +5551,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\DotNet\\Rest API with DotNet Core\\CinemaAPI\\CinemaAPI.csproj",
+      "projectUniqueName": "E:\\DotNet\\Rest API with DotNet Core\\APICinema\\CinemaAPI\\CinemaAPI.csproj",
       "projectName": "CinemaAPI",
-      "projectPath": "E:\\DotNet\\Rest API with DotNet Core\\CinemaAPI\\CinemaAPI.csproj",
+      "projectPath": "E:\\DotNet\\Rest API with DotNet Core\\APICinema\\CinemaAPI\\CinemaAPI.csproj",
       "packagesPath": "C:\\Users\\Prabhat chand\\.nuget\\packages\\",
-      "outputPath": "E:\\DotNet\\Rest API with DotNet Core\\CinemaAPI\\obj\\",
+      "outputPath": "E:\\DotNet\\Rest API with DotNet Core\\APICinema\\CinemaAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
