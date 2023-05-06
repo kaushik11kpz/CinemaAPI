@@ -1,0 +1,24 @@
+API
+-API stands for Application Programming Interface through which softwares can interact with each other
+-Example- Showing of exact flight time on different websites while booking a ticket(Use of API)
+
+Project Structure
+-Dependencies - All the references of the DL files, libraries,SDK and packages and all third party libraries will be placed here
+-Properties
+-lauchsettings.json - These settings will only be used when we run our project from cli or visual studio
+                     - It is not used when we publish our Web API to the Internet
+-appsettings.json - stores secrets such as connection strings, etc.
+-Program.cs - It is the entry point of the application
+            - The main method contains a build web host method which is used to create HostBuilder build it and then run it
+            - When call goes to the main method it will use startup class
+-Startup.cs - It contains two methods
+              1. ConfigureServices
+                -This method is called at run time
+                -This method is used to add the services to the container
+                -This method is used to add Independency Injection
+                -This method is also used to handle the services in our application like MVC services, authentication, EntityFramework Services
+              2. Configure
+                -This method is called at runtime
+                -In this method we use the services to configure HTTP request pipeline
+                -In this method we will define our Middlewares
+                -Middleware is piece of software that can handle HTTP request or response

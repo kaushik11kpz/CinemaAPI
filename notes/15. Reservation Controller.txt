@@ -1,0 +1,17 @@
+Reservation Controller Overview
+-Client --> Reserve the ticket via post reuquest  -- Post([FromBody] Reservation reservation)
+
+-Admin  --> Get the reservation list              -- GetReservation()
+        --> Get the detail by reservation id      -- GetReservationDetails(int id)
+        --> Delete/cancel the reservation         -- Delete(iny id)
+
+Post Reservation
+-Add the reservation Object in the database from Post reservation method _dbContext.Resevation.Add(reservationObj)
+
+Get Reservation
+-In this functionality we would return the details of the reservation done
+-We will use sql joins in LINQ to retreive the particular fields we want details of
+
+Get Reservation Details through an id
+-Same as above functionality just that we will add where in LINQ query i.e where reservation.Id == id
+-We first enclose the entire query in FirstOrDefault method

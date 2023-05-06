@@ -1,0 +1,9 @@
+Routing Overview
+-Discuss Attribute Routing introduced in ASP.NET Core Web API with example
+-If we have two method which accepts same type of request like both methods accept [HttpGet("{id}")] this attribute. There will be AmbiguousException at the browser
+-This issue will be solved via Attribute Routing
+
+Implement Routing in Web API
+-To resolve AmbiguousException via Attribute Routing in above problem
+-[HttpGet("[action]/{id}")] we will use this attribute. Here [action] is the method name used in the url
+-So, the path will be - api/Movies/Test/5

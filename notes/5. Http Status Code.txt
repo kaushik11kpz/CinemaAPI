@@ -1,0 +1,35 @@
+Https Status Code
+-Http Status Code are standard response codes given by Web Servers on Internet
+-The codes help identify the cause of the problem when a web page or other resource doesn't response properly
+-These are also called Browser Error Codes/Internet Error Code
+-When ever you request a resource on web server and if its not found, you will an Error 404
+-List of Http Status Code
+ Code    Description
+  200     OK
+  201     Created
+  202     Accepted
+  301     Moved Permanently
+  303     See other
+  304     Not Modified
+  307     Temporary Redirect
+  400     Bad Request
+  401     Unauthorized
+  403     Forbidden
+  404     Not Found
+  410     Gone
+  500     Internal Server Error
+  501     Service Unavailable.
+
+Add Status Codes in Web API
+Status Code in Get Request
+-Add status code inside Get Method of Project
+-Whenever we want to add status code we have to face some kind of error if the return type is not IActionResult
+
+Status Code in Post Request
+-
+
+Status Code in Put Request
+
+
+
+Status Code in Delete Request

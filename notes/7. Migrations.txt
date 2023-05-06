@@ -1,0 +1,12 @@
+Code First Migration Overview
+-Now we want to change our schema/model class which is not achievable since we created this table using EnsureCreated
+-Here, we will need Migrations which is used when we are unsure whether we want to change or schema or model class in future
+-Implement Code First Migration inside our Web API
+
+Drop the Database
+-We delete the current Database
+-Now we will create a database and schema with the help of Migrations
+
+Implement Migrations
+-Add-Migration InitialCreate
+-update-database

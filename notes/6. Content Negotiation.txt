@@ -1,0 +1,20 @@
+Content Negotiation Overview
+-One of standards of Restful services is that the client should be able to decide the format of response from the server ex- JSON, XML
+-When a client sends a request to the server, the request includes something called Accept Header
+-Using this Accept Header the client can specify the format which they want from the server
+-If Accept Header is in XML/JSON the server sends the response in XML/JSON format
+-Our ASP.Net Core Web API only supports JSON format
+-In order to receive the data in xml format, we need to configure our dot net core web api project so that it can support xml format
+
+Implement Content Negotiation
+-In ASP.Net Web API if we want to get response from server in xml format, then we need to perform one thing inside our project
+-Inside Startup.cs file in ConfigureServices method we need to add XMLSerializeFormatters along with AddMvc
+-Depending upon Accept Header value in request the server sends the response. This is called as Content Negotiation
+-By defualt the response will always be in JSON format
+
+What a Web API does when we request for specific data
+-The Web API genrates a controller data that we sends to our client i.e MoviesController
+-Once the required data is genrated the job of the Controller is done. Now, it is going to hand that list to Web API pipeline
+-Which then looks at the Accept header and depending upon the format which client has requested Web API will choose the appropriate formatter for formatting the data
+-These formatter are JSON formatter, XML Formatter
+-They are called media type formatters

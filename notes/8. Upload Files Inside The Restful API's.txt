@@ -1,0 +1,59 @@
+Configure Middleware for Root Folder
+-Create a wwwroot named folder
+-wwwroot folder contains all the files that we will upload inside ASP.Net Core Web API
+-wwwroot is a convention
+-This folder is used to hold all kinds of static content like images, html files, JavaScript files, etc.
+-In Startup.cs file inside Configure method we have to register our middleware to access this wwwroot folder
+-app.UseStaticFiles(); -> with this line our Web API can access this wwwroot folder
+
+Uploading Files
+-To upload the files in dot net core Web API, we need to understand few things
+-The datatype of image in ASP.NET Core is IFormFile which comes from namespace Microsoft.AspNetCore.Http
+1.
+-The Image property will not be a part of our Movie class/database as it is not a valid data type for database table or sql database
+-SQL database doesnot support this IFormFile datatype
+2.
+-Storing of Images inside database is a bad practice and this will also increase database size and reduce the performance of database
+-The questions remains is where we will store the images and how to retrieve the images inside our Web API?
+-We will store the images in wwwroot folder and then we will pick the path or name of image and store it inside the database
+-Next time when we will call the Get method then we will get the image path
+-After concatenating the image path with our Web App url we will get the image
+
+-So in the model class, we are not going to use image property indside of a model named table
+-That is why we are going to add a [NotMapped] attribute on top of this image property which means this image property will not be a part of our table
+
+-Now in Postman we will send Post request using FormBody
+-This time we need to send file along with this JSON data
+-How to pass the file(image) and JSON data in a single request
+-Inside Post method in Postman inside body, we will choose the form-data, which takes input as Key value pair and for image the type will be of File
+-Inside the Controller Post method in Web API we will use [FromForm] instead of [FromBody]
+-Inside this post method in Web API,
+1-We will upload the file
+2-Save file path inside database
+
+-To upload the files
+1-Path.Combine() is used to combine the strings into paths
+2-Path.Combine("wwwroot",movieObj.Image.FileName) - This is not a good approach as multiple filenames can be same which will lead to problem on the server side
+2-The good approach is to make every image unique. To do it, we will use C# GUID(Globally Unique Identifier Struct)
+-var guid = Guid.NewGuid(); -Every time we call post method a new unique key is generated because of GUID(GUID will rename an image to unique name)
+ var filePath = Path.Combine("wwwroot",guid+".jpg"); - once an image of any type is added, at the server side it will be converted to .jpg
+3-Now, Filehandling and streaming is used
+-we will check the image we got is null or not, if it is not null then we will add the file to the server else we will get an exception
+4-If image is not null, FileStream class is used to handle the file to create or open the file
+
+-To save file on the server - movieObj.Image.CopyTo(fileStream) - It's going to copy the content of the uploaded file to the targeted stream
+-This is all the steps to upload the files to the server
+
+Save the File Inside Database
+-Store JSON data and image path inside database
+-Add the movie record in the database using context class object with dbset object along with helper method add and use save changes
+-To hold an image filepath create a property ImageUrl inside model folder
+-Add migrations
+-Inside the post method in controller
+-assign movieObject.ImageUrl = filePath
+-To remove wwwroot from image path, use Remove method in filePath assigned to movieObj.ImageUrl
+-Now, we have uploaded the file to the server via post request
+
+Update Movie Method
+-Put method will be used to update the movie record
+- 

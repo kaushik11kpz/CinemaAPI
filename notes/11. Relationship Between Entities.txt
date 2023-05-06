@@ -1,0 +1,71 @@
+Overview of the Project
+-A client came to me and said he want me to develop a mobile application for his business so that it can be easy for his customers to book the cinema ticket
+-Make Restful API's for Cinema Ticket Booking
+-So I asked all the requirements from the client
+-He said he want a Sign Up Page and a Login Page and whenever a customer logs in he will get the movies which are going to play in the cinema
+-If the user want to explore some particular movie then he can tap the movie and he will get the necessary details of that particular movie
+-If the user wants to book a movie ticket then he just need to provide the necessary details and once the user will provide all these details then he can book the movie ticket
+-There will be another application for CinemaAdmin and this app issues to add, update or delete the movies. This app will also be used to store the user information like which user has booked a ticket etc.
+-So, in this course we are not going to make this mobile application 
+-We are going to build complete backend services or restful APIs for this mobile application
+
+-Before this, we need to understand relation between Table and Entities
+
+Understand Relation and Entities
+Relation Between Tables & Entities
+-In this lesson, we are going to show how many tables we need and what is the relationship between these tables
+-For above application we basically need 3 tables for our database
+1.-Users - This table will contain user data like
+            Id
+            Name
+            Email
+            Password
+            Role - This property tells that whether user is an admin or a normal user(this property used to differentiate between the admin and user)
+2.-Movies - This table will contain movies data like
+            Id
+            Name
+            Description
+            Language
+            Duration
+            PlayingDate
+            PlayingTime
+            TicketPrice
+            Rating
+            Genre
+            TrailorUrl
+            ImageUrl
+3.-Reservations - This table contains following Property
+            Id
+            Quantity
+            Price
+            Phone
+            ReservationTime
+-These are the tables that we need to make a Web API
+
+-The relationship between these tables and entities
+-For Users Tables
+-One User can reserve one or more than one movie, so -> one to many relationship between user and reservation and the UserId will be the foreign key in the reservation table
+-Against one Movie their will be one or more than one reservation, so -> one to many relationship between movie and the reservation and the MovieId will be the FK in the reservation table
+
+
+Adding Models
+-In this lesson we are going to add the model classes for User, Movie and Reservation
+-After adding all the class in the Models folder with respective properties
+-Since, their is one to many relationship between User and Reservation & Movie and the Reservation
+-So, how do I make relationship between these tables?
+-Well, there are certains conventions in EntityFramework which we need to follow inside a Model class and it will automatically create a one to many relationship between two tables inside the database
+-You don't need to configure anything else
+-Let's take a look at the convention, which will create a one to many relationship
+-We want to establish a one to many relationship between the user and the reservation entities where one user can reserve multiple movies
+-So the convention is to include a Collection Navigation property in the principle entity
+-In our case, we will add Collection Navigation property inside User class and Movie class
+-There are also many other ways to make a one to many relationship, but we will use the above one inside this project
+
+DbSet and Migrations
+-In the last lesson, we have added the models and now we're going to register the DbSet properties of model classes in the CinemaDbContext Class
+-Now, we delete MoviesController as we are going to make our APIs from scratch
+-Delete the database
+-Now, we are going to create the database again from these model classes that we have added in the models folder
+-Add Migrations
+-Add-Migrations InitialCreate - Create a migration named InitialCreate
+-Update-database - create a database schema from the migration script of InitialCreate

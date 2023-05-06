@@ -1,0 +1,13 @@
+Validation Overview
+-We are going to explore Model Validation inside Web API
+-Model Validation in ASP.NET Core MVC and ASP.NET Core Web API are very similar
+-Once we understand the concept we can implement it anywhere
+-Why we need to validate a model?
+-If a value is asked and we provided the null or wrong type of value then that will be stored in the database and later whenever
+someone issues a get request they well get empty/wrong type of data
+-Thus, it is the task of backend developer to take care of these rules
+
+Implement Model Validations inside Web API
+-ASP.NET Core comes with several built in code for validations
+-[Required] attribute states that this property is required and cannot be null or empty
+-

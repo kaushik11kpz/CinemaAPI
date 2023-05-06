@@ -1,0 +1,37 @@
+Sorting Overview
+-In this module we are going to look at sorting and filtering in ASP.NET Core Web API
+
+Implementing Sorting
+-We will use a switch statement and a parameter in GetAllMovies(string sort) method
+-If sort="desc", we will return movies with rating in descending order
+-If sort="asc", we will return movies with rating in ascending order
+
+Paging Overview
+-We cannot send the all tones of data to consumer 
+-We need to slice it down
+-Slice the data into pieces before sharing known as Paging
+-Implement Paging in Web API
+
+Implement Paging
+-We will use Paging inside GetAllMovies method
+-To implement Paing
+1-Provide Page Number - The purpose of Page Number is that from which page we are going to retrieve the data
+2.Provide Page size - The purpose of page size is to show the number of record on one page
+3.Get all data from databse 
+- _dbContext.Movies()
+4.Apply the simple skip and take algorithm to get specific result 
+- movies.Skip((pageNumber-1)*pageSize).Take(pageSize);
+-First we will pass two parameter inside method pageNumber and pageSize
+-Then we will get record from database
+-Skip will skill the parameter of record and show the number of record o the next page
+-We can also use default values for pageSize
+
+
+Searching Overview
+-Search functionality in Web API
+
+Implement Searching
+-In this lesson we will implemtn the search functionality in our Web API
+-To achieve it, we need a Get method in which we will provide movie name and on behalf of that movie name, we will get the search results
+-we will use LINQ query from GetAllMovies method and we will use where clause to implement search functionality
+-to check if each particular movie starts with a letter/movieName provided in the parameter

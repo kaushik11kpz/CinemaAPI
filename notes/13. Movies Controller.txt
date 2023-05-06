@@ -1,0 +1,30 @@
+Movies Controller Overview
+-Functionality Required for MoviesController
+-Since, we need to make this Restful API for admin and client
+-So we have to take care of requirements of both
+-Client --> Get the list of movies                GetAllMovies()
+        --> Get the movie detail                  MovieDetails(int id)
+-Admin --> Get the list of movies                 GetAllMovies()
+       --> Get the movie detail                   MovieDetail(int id)
+       --> Add the new movie                      Post([FromBody] Movie movieObj)
+       --> Update the movie                       Put([FromBody] Movie movieObj)
+       --> Delete the movie                       Delete(int id)
+
+
+Adding Movie
+-Add the post method for movies adding, which takes data from form of Postman 
+-We also add image of the movie using previous taught technique
+-It will only be accessed by Admin
+
+
+Update Movie
+-
+
+Delete Movie
+-
+
+GetAllMovies method
+-
+
+MovieDetail method
+-

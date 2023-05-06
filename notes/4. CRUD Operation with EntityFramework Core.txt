@@ -1,0 +1,56 @@
+Code First Approach
+-In code first apprach
+-We don't design database
+-We don't create Tables
+-EntityFramework is responsible for creating these things using our model classes
+
+Configure Nuget Packages
+1.install Microsoft.EntityFrameworkCore
+2.install Microsoft.EntityFrameworkCore.SqlServer from nuget packet
+
+DbContext Class
+-To make a connection of our Web API with Sql server using Code First Approach
+-Create a Context class and inherit DbContext to it which comes from EntityFrameworkCore namespace
+-This DbContext class is responsible to work with the database
+-It responsible to create,read,update and delete the data
+-For DbContext class to be able to do any work, it needs an instance of DBContextOptions class
+-The DbContextOptions instance carries the configuration information such as Connection String to use, the database provided to use,etc.
+-The easiest way to pass an instance of DbContextOptions class is by creating a constructor
+-Specify the context class as generic parameter of DbContextOptions class
+-Now pass the options to the base DbContext class
+-Inside the Context class add a property of DbSet of the model class
+-At runtime EntityFramework will map this DbSet property with our database table name
+-Add a Controller
+-The Context class is responsible for database CRUD operations and this class interacts with the Database behind the scene
+-Create a private field for Context class inside Controller and pass the Context class object as parameter of constructor of the Controller class
+-Assign the private field with the object of context class inside constructor
+-With this private field now we can access everything that is present in the context class
+
+Database Connection String
+-We will work with database connection string
+-We need to add this Connection string as service in Startup.cs file
+
+Database Ensure Created
+-In Configure method add Context class object as parameter
+-From this object call database property EnsureCreated
+-This EnsureCreated will check whether Database created or not, if it exists no action will be taken and if no database exists, then this EnsureCreated method will create a database and the entire schema of the database as well
+-This EnsureCreated method is only useful if you don't want to update a database in the future
+-But as we move forward, we'll add more properties in our Movie Model class and that means we need to implement the migrations inside the database
+-As we run the database is created in Sql Server, we may modify the cells in table and see the result in api in web browser
+
+Handling Get Request
+-In the HttpGet method use the context class object with table name from DbSet and Find helper method and pass the id in it and store it in a model class variable and return it;
+
+Handling Post Request
+-In the HttpPost method pass a model class object and with context class object with table name from DbSet and helper method Add that object and SaveChanges in the database which will save changes inside database
+
+Handling Put Request
+-Pass two parameters id and model class object as Parameter to put method
+-Using context class object with DbSet table from the context class and Find helper method with passing gievn id as parameter, find that particular record and store it in model class variable
+-Use that variable to update the name coming from the Postman or Swagger via model class object
+-Use SaveChanges 
+
+Handling Delete Request
+-Using context class object with DbSet table from the context class and Find helper method with passing gievn id as parameter, find that particular record and store it in model class variable
+-Again use Context class object along with DBSet table from the context class and Remove helper method with passing the that variable, that record will be removed
+-Use SaveChanges()

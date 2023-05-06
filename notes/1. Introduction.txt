@@ -1,0 +1,26 @@
+Goals
+-Develop Real World Rest API from Start to finish
+-By the end of this course, we will be able to develop Restful API of our choice
+
+Course Structure
+1.Basic Concepts
+-Getting Started with Web API
+-Connect Rest API with SQL Server via EntityFramework Core
+-Returning Resource(Status Code, Content Negotiation)
+This will make us familiar with ASP.NET Core Web API
+
+2.Intermediate Concept
+-Database Migrations
+-Upload Files inside Rest APIs
+-Model validations
+-Routing and Custom Methods
+
+3.Advance Concepts
+-Adding Entities and Relations(Add Relation between Entities)
+-Secure Restful APIs with JWT
+-Role Based Authorization
+-Complete Real World Cinema API
+-Sorting, Paging & Searching
+-API Documentation
+-API Deployment
+ 

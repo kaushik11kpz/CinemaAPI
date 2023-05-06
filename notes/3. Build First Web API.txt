@@ -1,0 +1,48 @@
+Http Verbs
+-In the world of Rest API, we don't use CRUD(Create,Read,Update,Delete)
+-We use GET,POST,PUT,DELETE
+-Database CRUD vs HTTP Verbs
+- SQL     HTTP
+  Create  Post
+  Read    GEt
+  Update  Put
+  Delete  Delete
+-The working is still same
+-Get - It is used to read and get all the data from external source or database
+-Post - It issues to add data inside database
+-Put - It is used to update the data in the database or external source
+-Delete - Delete the database or external source
+-Postman - It is an OpenSource software which is used to call Http Verbss.
+
+Creating Models
+-Models are C# classes that hold the properties
+-Add a Model Folder and add model classes in that folder
+-It will make our code more maintainable and understandable
+-In order to work with APIs we need to add Controller and Action Methods
+
+Create Controller
+
+Http Get Request
+-When we want to retrieve data from API, we have to use Get Method
+-We have to add [HttpGet] attribute on top of Get method
+-This attribute means when we sent Get request to this method from the web browser(client) or Postman, then our request will execute this method
+
+Http Post Request
+-void return type
+-Requires objects to be added as a parameter
+-Add the parameter inside the given list and make the already defined list static - so that we can share a single copy of this list throughout this controller
+-[HttpPost] attribute - It means when we initiate a Post request from the Postman then the this Post method is executed
+-Now, the question is, how to pass the data to the parameter object of the Post method
+-Since, it is not possible to send/pass data i.e send the Post request from the web browser, so we will use Postman
+-In Post, we copy the url of the method and select Post method and to send the data in JSON format, we select Body->Raw->Data and type the JSON data in the body section
+-Now, to pass the JSON data from this body section to the Post method of the Controller class, we need to add [From Body] in the parameter of the Post Method 
+
+Http Put request
+-Method parameter is same as Post, just one addition is that we have to provide one more parameter, i.e id
+-So that you can only update the record against some specific id 
+-[HttpPut("{id}")] attribute specifies that when we call the put request from postman, the call goes to this put method
+
+Http Delete Request
+-parameter is just and id
+-So that you can only delete the record against some specific id 
+-[HttpDelete("{id}")] attribute specifies that when we call the delete request from postman, the call goes to this put method
